@@ -265,7 +265,9 @@ Instructions:
     LiveWindow: "LiveWindow.addActuator(\"$Subsystem\", \"$Short_Name\", (${Type}) #variable($Name));"
   Servo:
     Defaults: "PWMOutput,Component,None"
-    ClassName: "Servo"
+    ClassName: "BBServo"
+    Import: "import org.usfirst.frc330.wpilibj.${ClassName};"
+    Construction: "#variable($Name) = new ${ClassName}(${Output_Channel_PWM}, ${Invert});"
   Digital Output:
     Defaults: "Component,None"
     ClassName: "DigitalOutput"

@@ -625,10 +625,13 @@ Palette:
           #PWMOutput("Output")
       - !Component
         name: Servo
-        type: Actuator
+        type: Servo
         help: A controllable motor; typically has a limited rotation.
         properties:
           #PWMOutput("Output")
+          - !BooleanProperty
+            name: Invert
+            default: false
       - !Component
         name: Digital Output
         type: Actuator
