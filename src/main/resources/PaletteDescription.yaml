@@ -263,7 +263,7 @@ Palette:
       - !Component
         name: Subsystem
         type: Subsystem
-        supports: {Sensor: -1, Actuator: -1, Controller: -1, PIDSource: -1, PIDOutput: -1}
+        supports: {Sensor: -1, Actuator: -1, Controller: -1, PIDSource: -1, PIDOutput: -1, Servo: -1}
         help: A functional part of your robot that groups the sensors and actuators together.
         properties:
           - !ConstantsProperty
