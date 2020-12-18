@@ -47,7 +47,6 @@ public class JavaExportTest {
     public void tearDown() {
     }
 
-    @Ignore("Disabling compile test until GradleRIO 2021 version released")
     @Test
     public void testJavaExport() throws IOException, InterruptedException {
         RobotTree tree = TestUtils.generateTestTree();
@@ -63,6 +62,11 @@ public class JavaExportTest {
         assertTrue("Robot tree is not valid.", tree.isRobotValid()); // Fails early instead of opening up a window to report failure.
         GenericExporter exporter = new GenericExporter("/export/java/");
         exporter.post_export_action = null;
+        exporter.export(tree);
+
+        assertEquals("Exit value should be 0, compilation failed.", 0, TestUtils.runBuild(PROJECT_DIRECTORY));
+
+        //export and build a second time
         exporter.export(tree);
 
         assertEquals("Exit value should be 0, compilation failed.", 0, TestUtils.runBuild(PROJECT_DIRECTORY));
